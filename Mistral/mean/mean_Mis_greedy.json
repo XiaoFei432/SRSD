@@ -1,0 +1,415 @@
+{
+  "note": "Sampling mean aggregator. speedup_mean_of_ratios = mean(speedup per run). speedup_of_mean_throughput = mean(tp)/mean(tp_baseline).",
+  "run_dirs": [
+    "result/Mis_greedy/result",
+    "result/Mis_greedy/result1",
+    "result/Mis_greedy/result2"
+  ],
+  "speedup_json": "speedup_stats_greedy.json",
+  "baseline": "hf_greedy",
+  "algos": [
+    "hf_greedy",
+    "pld",
+    "semantic"
+  ],
+  "recompute_from_jsonl": true,
+  "config_from_first_run": {
+    "samples_per_task": 200,
+    "max_new_tokens": 2048,
+    "do_sample": false,
+    "temperature": null,
+    "top_p": null,
+    "top_k": 0,
+    "model_path": "/root/autodl-tmp/models/Mistral-Small-3.1-24B-Instruct-2503",
+    "pld": {
+      "ngram": 4,
+      "K": 16
+    },
+    "semantic": {
+      "K": 16,
+      "threshold": 0.0,
+      "retrieval_topk": 10
+    },
+    "coarse_tasks": [
+      "translation",
+      "multi_turn",
+      "code_edit",
+      "math_reasoning",
+      "text_edit",
+      "summarization"
+    ],
+    "fine_tasks": [
+      "writing",
+      "roleplay",
+      "reasoning",
+      "math",
+      "coding",
+      "extraction",
+      "stem",
+      "humanities",
+      "translation",
+      "summarization",
+      "text_edit",
+      "math_reasoning",
+      "code_edit"
+    ]
+  },
+  "per_group": {
+    "translation": {
+      "label": "Translation",
+      "throughput": {
+        "hf_greedy_tok_s": {
+          "n": 3,
+          "mean": 27.342162051765634,
+          "std": 0.023652704049998124,
+          "median": 27.33242171639722,
+          "min": 27.319319045443635,
+          "max": 27.37474539345605
+        },
+        "pld_tok_s": {
+          "n": 3,
+          "mean": 33.486390003264766,
+          "std": 0.024290747574743064,
+          "median": 33.50356615559496,
+          "min": 33.452037698604386,
+          "max": 33.50356615559496
+        },
+        "semantic_tok_s": {
+          "n": 3,
+          "mean": 38.3760248786386,
+          "std": 0.09597103175493987,
+          "median": 38.42160749736926,
+          "min": 38.242520755848616,
+          "max": 38.463946382697934
+        }
+      },
+      "speedup_mean_of_ratios": {
+        "pld_vs_hf_greedy_speedup": {
+          "n": 3,
+          "mean": 1.2247166349932477,
+          "std": 0.0007911595545745056,
+          "median": 1.2244828519685806,
+          "min": 1.2238859457521754,
+          "max": 1.2257811072589868
+        },
+        "semantic_vs_hf_greedy_speedup": {
+          "n": 3,
+          "mean": 1.4035461728303305,
+          "std": 0.002637108102275001,
+          "median": 1.4050887352505848,
+          "min": 1.399834333067931,
+          "max": 1.4057154501724753
+        }
+      },
+      "speedup_of_mean_throughput": {
+        "pld_vs_hf_greedy_speedup": 1.2247162437215664,
+        "semantic_vs_hf_greedy_speedup": 1.4035475616735456
+      }
+    },
+    "multi_turn": {
+      "label": "Multi-turn Conversation",
+      "throughput": {
+        "hf_greedy_tok_s": {
+          "n": 3,
+          "mean": 27.289641540595287,
+          "std": 0.01359575261703897,
+          "median": 27.297816728661612,
+          "min": 27.2704827336416,
+          "max": 27.300625159482646
+        },
+        "pld_tok_s": {
+          "n": 3,
+          "mean": 31.381895333027565,
+          "std": 0.027923855471807788,
+          "median": 31.401640480588554,
+          "min": 31.34240503790559,
+          "max": 31.401640480588554
+        },
+        "semantic_tok_s": {
+          "n": 3,
+          "mean": 35.675230352861966,
+          "std": 0.021015695792055963,
+          "median": 35.67030561583456,
+          "min": 35.65230966741551,
+          "max": 35.70307577533583
+        }
+      },
+      "speedup_mean_of_ratios": {
+        "pld_vs_hf_greedy_speedup": {
+          "n": 3,
+          "mean": 1.1499560817298915,
+          "std": 0.000455102221838931,
+          "median": 1.1502169015232773,
+          "min": 1.1493161065037092,
+          "max": 1.1503352371626883
+        },
+        "semantic_vs_hf_greedy_speedup": {
+          "n": 3,
+          "mean": 1.3072813103243786,
+          "std": 0.0009668008211976454,
+          "median": 1.3079095713119444,
+          "min": 1.3059155041009005,
+          "max": 1.3080188555602907
+        }
+      },
+      "speedup_of_mean_throughput": {
+        "pld_vs_hf_greedy_speedup": 1.1499563043488408,
+        "semantic_vs_hf_greedy_speedup": 1.3072810172237888
+      }
+    },
+    "code_edit": {
+      "label": "Code Editing",
+      "throughput": {
+        "hf_greedy_tok_s": {
+          "n": 3,
+          "mean": 27.249021023325984,
+          "std": 0.0,
+          "median": 27.249021023325984,
+          "min": 27.249021023325984,
+          "max": 27.249021023325984
+        },
+        "pld_tok_s": {
+          "n": 3,
+          "mean": 36.37304417470242,
+          "std": 0.0,
+          "median": 36.37304417470242,
+          "min": 36.37304417470242,
+          "max": 36.37304417470242
+        },
+        "semantic_tok_s": {
+          "n": 3,
+          "mean": 42.5927427728482,
+          "std": 0.10044852214580775,
+          "median": 42.58344679725832,
+          "min": 42.47463064077398,
+          "max": 42.72015088051229
+        }
+      },
+      "speedup_mean_of_ratios": {
+        "pld_vs_hf_greedy_speedup": {
+          "n": 3,
+          "mean": 1.3348385669916727,
+          "std": 0.0,
+          "median": 1.3348385669916727,
+          "min": 1.3348385669916727,
+          "max": 1.3348385669916727
+        },
+        "semantic_vs_hf_greedy_speedup": {
+          "n": 3,
+          "mean": 1.5630925873038715,
+          "std": 0.0036863167326203054,
+          "median": 1.562751438328944,
+          "min": 1.5587580414142004,
+          "max": 1.5677682821684698
+        }
+      },
+      "speedup_of_mean_throughput": {
+        "pld_vs_hf_greedy_speedup": 1.3348385669916727,
+        "semantic_vs_hf_greedy_speedup": 1.5630925873038715
+      }
+    },
+    "math_reasoning": {
+      "label": "Mathematical Reasoning",
+      "throughput": {
+        "hf_greedy_tok_s": {
+          "n": 3,
+          "mean": 27.357699868245582,
+          "std": 0.008618877072174706,
+          "median": 27.35786084329556,
+          "min": 27.347064375829415,
+          "max": 27.368174385611777
+        },
+        "pld_tok_s": {
+          "n": 3,
+          "mean": 35.211716989844504,
+          "std": 0.013201237553892122,
+          "median": 35.22105167443892,
+          "min": 35.19304762065568,
+          "max": 35.22105167443892
+        },
+        "semantic_tok_s": {
+          "n": 3,
+          "mean": 41.14790886362577,
+          "std": 0.19928753256624315,
+          "median": 41.0878819808521,
+          "min": 40.93944618259599,
+          "max": 41.416398427429236
+        }
+      },
+      "speedup_mean_of_ratios": {
+        "pld_vs_hf_greedy_speedup": {
+          "n": 3,
+          "mean": 1.2870864227572887,
+          "std": 0.0008563802940216627,
+          "median": 1.287419797775247,
+          "min": 1.2859114066138684,
+          "max": 1.2879280638827506
+        },
+        "semantic_vs_hf_greedy_speedup": {
+          "n": 3,
+          "mean": 1.5040713010352835,
+          "std": 0.007435320006318953,
+          "median": 1.5024604255938876,
+          "min": 1.4958778618466788,
+          "max": 1.5138756156652842
+        }
+      },
+      "speedup_of_mean_throughput": {
+        "pld_vs_hf_greedy_speedup": 1.2870861643860336,
+        "semantic_vs_hf_greedy_speedup": 1.5040704833298744
+      }
+    },
+    "text_edit": {
+      "label": "Text Editing",
+      "throughput": {
+        "hf_greedy_tok_s": {
+          "n": 3,
+          "mean": 27.043540119546726,
+          "std": 0.008824475165282267,
+          "median": 27.039694126910447,
+          "min": 27.03518141861221,
+          "max": 27.055744813117524
+        },
+        "pld_tok_s": {
+          "n": 3,
+          "mean": 41.45333471534266,
+          "std": 0.0692080289342042,
+          "median": 41.50227218191459,
+          "min": 41.3554597821988,
+          "max": 41.50227218191459
+        },
+        "semantic_tok_s": {
+          "n": 3,
+          "mean": 47.35475821205457,
+          "std": 0.11596479893566453,
+          "median": 47.43035098517176,
+          "min": 47.190921945388034,
+          "max": 47.443001705603905
+        }
+      },
+      "speedup_mean_of_ratios": {
+        "pld_vs_hf_greedy_speedup": {
+          "n": 3,
+          "mean": 1.5328367510183978,
+          "std": 0.0024519758932376933,
+          "median": 1.533954155340529,
+          "min": 1.529435192132629,
+          "max": 1.5351209055820354
+        },
+        "semantic_vs_hf_greedy_speedup": {
+          "n": 3,
+          "mean": 1.75105600095276,
+          "std": 0.004173489714270033,
+          "median": 1.753060258100008,
+          "min": 1.7452461453113362,
+          "max": 1.7548615994469359
+        }
+      },
+      "speedup_of_mean_throughput": {
+        "pld_vs_hf_greedy_speedup": 1.5328368450320127,
+        "semantic_vs_hf_greedy_speedup": 1.7510561857923015
+      }
+    },
+    "summarization": {
+      "label": "Summarization",
+      "throughput": {
+        "hf_greedy_tok_s": {
+          "n": 3,
+          "mean": 27.14501551381316,
+          "std": 0.027236564442273667,
+          "median": 27.163848730608116,
+          "min": 27.106500312274555,
+          "max": 27.16469749855681
+        },
+        "pld_tok_s": {
+          "n": 3,
+          "mean": 33.45889987828121,
+          "std": 0.02414396152221709,
+          "median": 33.47597223719828,
+          "min": 33.42475516044708,
+          "max": 33.47597223719828
+        },
+        "semantic_tok_s": {
+          "n": 3,
+          "mean": 36.914811231495634,
+          "std": 0.015807052741328063,
+          "median": 36.910191781039735,
+          "min": 36.89817920699805,
+          "max": 36.93606270644912
+        }
+      },
+      "speedup_mean_of_ratios": {
+        "pld_vs_hf_greedy_speedup": {
+          "n": 3,
+          "mean": 1.2325986452100963,
+          "std": 0.0003478137368047226,
+          "median": 1.232372207973522,
+          "min": 1.2323337021874354,
+          "max": 1.2330900254693316
+        },
+        "semantic_vs_hf_greedy_speedup": {
+          "n": 3,
+          "mean": 1.3599124644697667,
+          "std": 0.0013618368899454454,
+          "median": 1.3597082282404007,
+          "min": 1.3583560846965448,
+          "max": 1.3616730804723547
+        }
+      },
+      "speedup_of_mean_throughput": {
+        "pld_vs_hf_greedy_speedup": 1.2325982964074982,
+        "semantic_vs_hf_greedy_speedup": 1.3599112224751155
+      }
+    }
+  },
+  "overall": {
+    "throughput": {
+      "hf_greedy_tok_s": {
+        "n": 3,
+        "mean": 27.191679172443543,
+        "std": 0.0070718746484388145,
+        "median": 27.191006412567386,
+        "min": 27.183373928565658,
+        "max": 27.200657176197584
+      },
+      "pld_tok_s": {
+        "n": 3,
+        "mean": 36.20257821454644,
+        "std": 0.0295168892450915,
+        "median": 36.22344980709118,
+        "min": 36.16083502945697,
+        "max": 36.22344980709118
+      },
+      "semantic_tok_s": {
+        "n": 3,
+        "mean": 41.54663848086917,
+        "std": 0.0703643340600459,
+        "median": 41.56939434576572,
+        "min": 41.45136574988619,
+        "max": 41.619155346955594
+      }
+    },
+    "speedup_mean_of_ratios": {
+      "pld_vs_hf_greedy_speedup": {
+        "n": 3,
+        "mean": 1.3313842833374925,
+        "std": 0.0008211044150427398,
+        "median": 1.3317123028479307,
+        "min": 1.3302555865391434,
+        "max": 1.3321849606254035
+      },
+      "semantic_vs_hf_greedy_speedup": {
+        "n": 3,
+        "mean": 1.5279168135923518,
+        "std": 0.002211137620192905,
+        "median": 1.5287920467170646,
+        "min": 1.5248793567279377,
+        "max": 1.5300790373320527
+      }
+    },
+    "speedup_of_mean_throughput": {
+      "pld_vs_hf_greedy_speedup": 1.331384427749305,
+      "semantic_vs_hf_greedy_speedup": 1.5279173535915045
+    }
+  }
+}

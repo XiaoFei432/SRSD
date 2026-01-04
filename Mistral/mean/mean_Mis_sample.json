@@ -1,0 +1,415 @@
+{
+  "note": "Sampling mean aggregator. speedup_mean_of_ratios = mean(speedup per run). speedup_of_mean_throughput = mean(tp)/mean(tp_baseline).",
+  "run_dirs": [
+    "result/Mis_sample/result",
+    "result/Mis_sample/result1",
+    "result/Mis_sample/result2"
+  ],
+  "speedup_json": "speedup_stats_sampling.json",
+  "baseline": "hf_sampling",
+  "algos": [
+    "hf_sampling",
+    "pld",
+    "semantic"
+  ],
+  "recompute_from_jsonl": true,
+  "config_from_first_run": {
+    "samples_per_task": 200,
+    "max_new_tokens": 2048,
+    "do_sample": true,
+    "temperature": 0.8,
+    "top_p": 0.9,
+    "top_k": 0,
+    "model_path": "/root/autodl-tmp/models/Mistral-Small-3.1-24B-Instruct-2503",
+    "pld": {
+      "ngram": 4,
+      "K": 16
+    },
+    "semantic": {
+      "K": 16,
+      "threshold": 0.0,
+      "retrieval_topk": 10
+    },
+    "coarse_tasks": [
+      "translation",
+      "multi_turn",
+      "code_edit",
+      "math_reasoning",
+      "text_edit",
+      "summarization"
+    ],
+    "fine_tasks": [
+      "writing",
+      "roleplay",
+      "reasoning",
+      "math",
+      "coding",
+      "extraction",
+      "stem",
+      "humanities",
+      "translation",
+      "summarization",
+      "text_edit",
+      "math_reasoning",
+      "code_edit"
+    ]
+  },
+  "per_group": {
+    "translation": {
+      "label": "Translation",
+      "throughput": {
+        "hf_sampling_tok_s": {
+          "n": 3,
+          "mean": 27.41820313657068,
+          "std": 0.01981458274610381,
+          "median": 27.431028518301225,
+          "min": 27.390213635892493,
+          "max": 27.43336725551832
+        },
+        "pld_tok_s": {
+          "n": 3,
+          "mean": 34.35677351981555,
+          "std": 0.2828381156788977,
+          "median": 34.19330741964313,
+          "min": 34.122349607156984,
+          "max": 34.75466353264653
+        },
+        "semantic_tok_s": {
+          "n": 3,
+          "mean": 34.98035426104588,
+          "std": 0.4711915727272623,
+          "median": 34.6514574729846,
+          "min": 34.64290383617373,
+          "max": 35.64670147397931
+        }
+      },
+      "speedup_mean_of_ratios": {
+        "pld_vs_hf_sampling_speedup": {
+          "n": 3,
+          "mean": 1.253062310561092,
+          "std": 0.010017591702554804,
+          "median": 1.2483768061902145,
+          "min": 1.2438265156929706,
+          "max": 1.266983609800091
+        },
+        "semantic_vs_hf_sampling_speedup": {
+          "n": 3,
+          "mean": 1.2758025816218495,
+          "std": 0.01677265657448201,
+          "median": 1.2647912972382667,
+          "min": 1.2631135343407156,
+          "max": 1.2995029132865659
+        }
+      },
+      "speedup_of_mean_throughput": {
+        "pld_vs_hf_sampling_speedup": 1.2530643729161863,
+        "semantic_vs_hf_sampling_speedup": 1.275807684654168
+      }
+    },
+    "multi_turn": {
+      "label": "Multi-turn Conversation",
+      "throughput": {
+        "hf_sampling_tok_s": {
+          "n": 3,
+          "mean": 27.329594270760023,
+          "std": 0.012914624792382798,
+          "median": 27.321262738496827,
+          "min": 27.31968450926732,
+          "max": 27.347835564515925
+        },
+        "pld_tok_s": {
+          "n": 3,
+          "mean": 32.289650713920686,
+          "std": 0.02787047003964471,
+          "median": 32.30757145618153,
+          "min": 32.250288370848274,
+          "max": 32.31109231473225
+        },
+        "semantic_tok_s": {
+          "n": 3,
+          "mean": 33.68261992752636,
+          "std": 0.1337991442404812,
+          "median": 33.6412072825951,
+          "min": 33.54342921709558,
+          "max": 33.8632232828884
+        }
+      },
+      "speedup_mean_of_ratios": {
+        "pld_vs_hf_sampling_speedup": {
+          "n": 3,
+          "mean": 1.1814910495959883,
+          "std": 0.0015757208579141387,
+          "median": 1.1825748370272076,
+          "min": 1.1792629180750716,
+          "max": 1.1826353936856857
+        },
+        "semantic_vs_hf_sampling_speedup": {
+          "n": 3,
+          "mean": 1.232460460581383,
+          "std": 0.00508388670001866,
+          "median": 1.2301232104176054,
+          "min": 1.227740808986528,
+          "max": 1.239517362340015
+        }
+      },
+      "speedup_of_mean_throughput": {
+        "pld_vs_hf_sampling_speedup": 1.1814903065892726,
+        "semantic_vs_hf_sampling_speedup": 1.2324595672305114
+      }
+    },
+    "code_edit": {
+      "label": "Code Editing",
+      "throughput": {
+        "hf_sampling_tok_s": {
+          "n": 3,
+          "mean": 27.28197031599587,
+          "std": 0.012076951722765352,
+          "median": 27.27718282512693,
+          "min": 27.27016585405209,
+          "max": 27.298562268808595
+        },
+        "pld_tok_s": {
+          "n": 3,
+          "mean": 37.123103306772805,
+          "std": 0.1989204175164399,
+          "median": 37.02741121086357,
+          "min": 36.941850542328176,
+          "max": 37.40004816712667
+        },
+        "semantic_tok_s": {
+          "n": 3,
+          "mean": 39.39278086993779,
+          "std": 0.13825391553469296,
+          "median": 39.3176704986255,
+          "min": 39.27400294383571,
+          "max": 39.586669167352156
+        }
+      },
+      "speedup_mean_of_ratios": {
+        "pld_vs_hf_sampling_speedup": {
+          "n": 3,
+          "mean": 1.360716606224304,
+          "std": 0.006742618582754762,
+          "median": 1.3577992671196624,
+          "min": 1.3543132653823196,
+          "max": 1.3700372861709298
+        },
+        "semantic_vs_hf_sampling_speedup": {
+          "n": 3,
+          "mean": 1.4439137899870351,
+          "std": 0.005356134871883618,
+          "median": 1.4417833286768684,
+          "min": 1.4386839335018857,
+          "max": 1.4512741077823512
+        }
+      },
+      "speedup_of_mean_throughput": {
+        "pld_vs_hf_sampling_speedup": 1.3607192910479387,
+        "semantic_vs_hf_sampling_speedup": 1.4439126065187875
+      }
+    },
+    "math_reasoning": {
+      "label": "Mathematical Reasoning",
+      "throughput": {
+        "hf_sampling_tok_s": {
+          "n": 3,
+          "mean": 27.40950821894168,
+          "std": 0.015042543810627024,
+          "median": 27.41018634133643,
+          "min": 27.390755241839337,
+          "max": 27.427583073649274
+        },
+        "pld_tok_s": {
+          "n": 3,
+          "mean": 36.52128625663348,
+          "std": 0.2006436381012549,
+          "median": 36.646028972480345,
+          "min": 36.23819732940909,
+          "max": 36.679632468011
+        },
+        "semantic_tok_s": {
+          "n": 3,
+          "mean": 37.15190719748721,
+          "std": 0.05490182316391749,
+          "median": 37.18853036742553,
+          "min": 37.07430503276178,
+          "max": 37.19288619227432
+        }
+      },
+      "speedup_mean_of_ratios": {
+        "pld_vs_hf_sampling_speedup": {
+          "n": 3,
+          "mean": 1.3324349460418847,
+          "std": 0.007922569401050343,
+          "median": 1.3378977194649817,
+          "min": 1.3212318866048576,
+          "max": 1.3381752320558147
+        },
+        "semantic_vs_hf_sampling_speedup": {
+          "n": 3,
+          "mean": 1.355438086562226,
+          "std": 0.0013768742642033458,
+          "median": 1.3560395056466696,
+          "min": 1.3535335081279845,
+          "max": 1.3567412459120238
+        }
+      },
+      "speedup_of_mean_throughput": {
+        "pld_vs_hf_sampling_speedup": 1.332431284972672,
+        "semantic_vs_hf_sampling_speedup": 1.3554386638652978
+      }
+    },
+    "text_edit": {
+      "label": "Text Editing",
+      "throughput": {
+        "hf_sampling_tok_s": {
+          "n": 3,
+          "mean": 27.093155963978298,
+          "std": 0.009376526593731269,
+          "median": 27.09963481402483,
+          "min": 27.079896695992172,
+          "max": 27.099936381917885
+        },
+        "pld_tok_s": {
+          "n": 3,
+          "mean": 40.77914175604072,
+          "std": 0.0820816673154767,
+          "median": 40.773371949742135,
+          "min": 40.68162181784563,
+          "max": 40.882431500534395
+        },
+        "semantic_tok_s": {
+          "n": 3,
+          "mean": 44.00757818592853,
+          "std": 0.5642787308671509,
+          "median": 44.38046498766288,
+          "min": 43.21012553473628,
+          "max": 44.43214403538642
+        }
+      },
+      "speedup_mean_of_ratios": {
+        "pld_vs_hf_sampling_speedup": {
+          "n": 3,
+          "mean": 1.5051466062717038,
+          "std": 0.003499059063091095,
+          "median": 1.5045560024616031,
+          "min": 1.5011870859895033,
+          "max": 1.5096967303640048
+        },
+        "semantic_vs_hf_sampling_speedup": {
+          "n": 3,
+          "mean": 1.6243100383871694,
+          "std": 0.0211236440358678,
+          "median": 1.6376593790557836,
+          "min": 1.5944910634874612,
+          "max": 1.640779672618263
+        }
+      },
+      "speedup_of_mean_throughput": {
+        "pld_vs_hf_sampling_speedup": 1.505145499116405,
+        "semantic_vs_hf_sampling_speedup": 1.624306088387739
+      }
+    },
+    "summarization": {
+      "label": "Summarization",
+      "throughput": {
+        "hf_sampling_tok_s": {
+          "n": 3,
+          "mean": 27.210420894546573,
+          "std": 0.022957364755576186,
+          "median": 27.218317204690134,
+          "min": 27.179200095500136,
+          "max": 27.23374538344945
+        },
+        "pld_tok_s": {
+          "n": 3,
+          "mean": 33.190075597327876,
+          "std": 0.0760855715011654,
+          "median": 33.2331320274802,
+          "min": 33.08314756285558,
+          "max": 33.25394720164784
+        },
+        "semantic_tok_s": {
+          "n": 3,
+          "mean": 34.548053024698824,
+          "std": 0.19441987112609319,
+          "median": 34.431233516190524,
+          "min": 34.39090876888371,
+          "max": 34.822016789022236
+        }
+      },
+      "speedup_mean_of_ratios": {
+        "pld_vs_hf_sampling_speedup": {
+          "n": 3,
+          "mean": 1.2197587894776334,
+          "std": 0.003664685604439037,
+          "median": 1.2209840813286437,
+          "min": 1.2147850799457405,
+          "max": 1.223507207158516
+        },
+        "semantic_vs_hf_sampling_speedup": {
+          "n": 3,
+          "mean": 1.2696588073475024,
+          "std": 0.006348533217854613,
+          "median": 1.2653392538427783,
+          "min": 1.2650022871457127,
+          "max": 1.2786348810540158
+        }
+      },
+      "speedup_of_mean_throughput": {
+        "pld_vs_hf_sampling_speedup": 1.2197560532398721,
+        "semantic_vs_hf_sampling_speedup": 1.26966257370987
+      }
+    }
+  },
+  "overall": {
+    "throughput": {
+      "hf_sampling_tok_s": {
+        "n": 3,
+        "mean": 27.237096580927563,
+        "std": 0.010367618161741027,
+        "median": 27.24245173556714,
+        "min": 27.22259855528247,
+        "max": 27.246239451933075
+      },
+      "pld_tok_s": {
+        "n": 3,
+        "mean": 36.588561061858464,
+        "std": 0.036574569826450166,
+        "median": 36.60753577889328,
+        "min": 36.537402144430075,
+        "max": 36.620745262252036
+      },
+      "semantic_tok_s": {
+        "n": 3,
+        "mean": 38.59908177946661,
+        "std": 0.09643544545197949,
+        "median": 38.60976590874682,
+        "min": 38.47599388795597,
+        "max": 38.71148554169704
+      }
+    },
+    "speedup_mean_of_ratios": {
+      "pld_vs_hf_sampling_speedup": {
+        "n": 3,
+        "mean": 1.3433358939859612,
+        "std": 0.0015401984891321076,
+        "median": 1.344066043567486,
+        "min": 1.3411936083831857,
+        "max": 1.344748030007212
+      },
+      "semantic_vs_hf_sampling_speedup": {
+        "n": 3,
+        "mean": 1.417151624740417,
+        "std": 0.0036991337607690227,
+        "median": 1.4182983241052387,
+        "min": 1.412157958746346,
+        "max": 1.4209985913696666
+      }
+    },
+    "speedup_of_mean_throughput": {
+      "pld_vs_hf_sampling_speedup": 1.3433355847289226,
+      "semantic_vs_hf_sampling_speedup": 1.4171511146490972
+    }
+  }
+}

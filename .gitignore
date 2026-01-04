@@ -1,0 +1,8 @@
+EAGLE/
+llama.cpp/
+
+# common generated artifacts
+__pycache__/
+result/
+outputs/
+*.jsonl

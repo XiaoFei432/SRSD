@@ -1,0 +1,15 @@
+{
+  "writing": 25,
+  "roleplay": 31,
+  "reasoning": 25,
+  "math": 31,
+  "coding": 26,
+  "extraction": 26,
+  "stem": 31,
+  "humanities": 31,
+  "translation": 26,
+  "summarization": 31,
+  "text_edit": 22,
+  "math_reasoning": 31,
+  "code_edit": 26
+}
