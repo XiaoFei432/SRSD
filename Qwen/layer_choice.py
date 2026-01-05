@@ -44,11 +44,14 @@ MT_BENCH_SUBCATEGORIES = [
 ]
 
 SINGLE_TURN_CATEGORIES = [
-  
-    "project",
+    "translation",
+    "summarization",
+    "text_edit",
+    "math_reasoning",
+    "code_edit",
 ]
 
-ALL_SPEC_BENCH_CATEGORIES =SINGLE_TURN_CATEGORIES
+ALL_SPEC_BENCH_CATEGORIES = MT_BENCH_SUBCATEGORIES + SINGLE_TURN_CATEGORIES
 
 
 # ===========================
