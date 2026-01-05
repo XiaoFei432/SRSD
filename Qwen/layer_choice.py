@@ -4,7 +4,7 @@
 """
 python layer_choice.py \
   --model-path /home/ubuntu/.cache/modelscope/hub/models/LLM-Research/Meta-Llama-3___1-8B-Instruct \
-  --question-path spec_bench/question.jsonl \
+  --question-path spec_bench/layer.jsonl \
   --output-json map/best_layer2.json \
   --output-plot single.png \
   --max-new-tokens 1500 \
