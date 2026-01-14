@@ -10,7 +10,7 @@ SRSD achieves significant speedups (1.5–3× on long-context tasks) without req
 
 ## System Overview
 
-![System Architecture](./overview.pdf)
+![System Architecture](./overview.png)
 
 ### Method
 
@@ -187,7 +187,7 @@ python Qwen/run_pld.py \
 
 ## Example Results
 
-![Example Output](./example.pdf)
+![Example Output](./example.png)
 
 The figure above shows example outputs and performance comparisons across different methods on code editing tasks.
 
