@@ -39,7 +39,59 @@ SRSD introduces a novel **training-free** speculative decoding approach that exp
 
 ### System Dependencies
 
-Ensure you have Python 3.8+ and CUDA-capable GPU(s). Then install dependencies:
+Ensure you have the following prerequisites:
+- Python 3.8+
+- CUDA-capable GPU(s)
+- Git (for cloning submodules)
+- CMake (for llama.cpp compilation)
+- C++ compiler (GCC/Clang/MSVC)
+
+### Step 0: Install Dependencies (llama.cpp and EAGLE)
+
+This project uses llama.cpp for GGUF model support and EAGLE-3 for baseline comparisons.
+
+#### Install llama.cpp
+
+```bash
+# Clone and checkout specific version
+git clone https://github.com/ggerganov/llama.cpp.git 
+cd llama.cpp
+git checkout 22577583a38ec0d236e6b4d45357c5e79021da07
+
+# Build with CUDA support (recommended)
+cmake -B build -DGGML_CUDA=ON
+cmake --build build --config Release
+
+# Or build with CPU only
+# make
+
+cd ..
+```
+
+#### Install EAGLE-3
+
+```bash
+# Clone and checkout specific version
+git clone https://github.com/SafeAILab/EAGLE.git EAGLE
+cd EAGLE
+git checkout 791597abcf8d61245ea0784d94c518acc4a5814b
+
+# Install EAGLE package
+pip install -e .
+
+# Or install requirements only
+# pip install -r requirements.txt
+
+cd ..
+```
+
+**Tested Versions:**
+- **EAGLE**: commit `791597abcf8d61245ea0784d94c518acc4a5814b` (short: `791597a`)
+- **llama.cpp**: commit `22577583a38ec0d236e6b4d45357c5e79021da07` (short: `b7312`)
+
+For EAGLE-3 pre-trained weights, see [EAGLE README](https://github.com/SafeAILab/EAGLE#eagle-3-weights).
+
+### Step 1: Install Python Dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -48,8 +100,8 @@ pip install -r requirements.txt
 Key dependencies include:
 - PyTorch (with CUDA support)
 - Transformers
-- vLLM (for baseline comparisons)
 - Additional NLP libraries (see `requirements.txt` for full list)
+
 
 ---
 
