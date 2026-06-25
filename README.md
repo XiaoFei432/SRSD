@@ -4,8 +4,6 @@
 
 SRSD achieves significant speedups (1.5–3× on long-context tasks) without requiring additional models or fine-tuning, making it a cost-effective solution for accelerating LLM inference.
 
-> **Anonymous submission note:** This repo is provided for double-blind review. Please avoid adding any identifying information (names/emails/affiliations) in commits, issues, logs, or file metadata.
-
 ---
 
 ## System Overview
