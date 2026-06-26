@@ -1,4 +1,4 @@
-# SRSD (Anonymous Repo)
+# SRSD
 
 **Semantic Retrieval Speculative Decoding** is a **training-free** decoding acceleration method that reuses a target LLM's intermediate-layer hidden states as an in-context semantic index.
 
